@@ -4,6 +4,7 @@ import { FormsModule, FormGroup, FormControl, Validators, ReactiveFormsModule  }
 import {NGXLogger} from "ngx-logger";
 
 import {Courtier} from '../model/courtier';
+//import { forbiddenNameValidator } from '../directive/validator/forbidden-name-validator-reactive-form.directive';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import {Courtier} from '../model/courtier';
 })
 export class LoginComponent implements OnInit {
   courtier: Courtier;
-
+  
   title: string;
 
   heroes: string[];
@@ -30,9 +31,10 @@ export class LoginComponent implements OnInit {
   loginFormGroup: FormGroup;
   ngOnInit(): void {
     this.loginFormGroup = new FormGroup({
-      'id': new FormControl(this.courtier.id),
-      'userid': new FormControl(this.courtier.id, [Validators.required,Validators.minLength(3)]),
-      'password': new FormControl(this.courtier.id, [Validators.required,Validators.minLength(7)])
+      'id': new FormControl(this.courtier.id,[Validators.required,Validators.minLength(3)]),
+      'userid': new FormControl(this.courtier.userid, [Validators.required,Validators.minLength(3)]),
+      'password': new FormControl(this.courtier.password, [Validators.required,Validators.minLength(3)])
+
     });
   }
   get userid(){return this.loginFormGroup.get('userid');  }

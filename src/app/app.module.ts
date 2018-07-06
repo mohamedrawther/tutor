@@ -8,13 +8,17 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {routing} from "./app-routing.module";
 import { FileNotFoundComponent } from './error/file-not-found/file-not-found.component';
 import { FormsModule,ReactiveFormsModule  }   from '@angular/forms';
+import { ForbiddenNameValidatorDirectiveDirective } from './directive/validator/forbidden-name-validator-directive.directive';
+import { ForbiddenNameValidatorReactiveFormDirective } from './directive/validator/forbidden-name-validator-reactive-form.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavBarComponent,
-    FileNotFoundComponent    
+    FileNotFoundComponent,
+    ForbiddenNameValidatorDirectiveDirective,
+    //ForbiddenNameValidatorReactiveFormDirective    
   ],
   imports: [
     BrowserModule,
